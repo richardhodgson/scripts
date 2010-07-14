@@ -1,0 +1,3 @@
+A collection of (fairly wonky) scripts
+
+jsdoc-generate-from-dir - Convert a dir of js files into json formatted JSDoc
