@@ -1,0 +1,27 @@
+#!/bin/sh
+
+CURRENT_DIR=`(cd $(dirname $0); pwd)`
+SRC_DIR=`(cd $1; pwd)`
+TARGET_DIR=`(cd $2; pwd)`
+
+FILE_COUNT=0
+
+cd $SRC_DIR
+
+echo ==================================
+echo  = JSDoc 3 Directory Conversion =
+echo ==================================
+echo "Generating $SRC_DIR to $TARGET_DIR"
+
+echo "- Creating directory structure..."
+find . -type d | grep -v git | grep -v svn | (cd $TARGET_DIR; xargs mkdir -p)
+
+echo "- Converting each file with JSDoc..."
+# run jsdoc on each file and pipe to file in the TARGET_DIR
+for f in $(find . -type f -name '*.js'); do
+    FILE_COUNT=$(($FILE_COUNT+1))
+    java -jar $CURRENT_DIR/jsdoc.jar -d json $f > $TARGET_DIR/$f
+done
+
+echo "- Finished. Converted $FILE_COUNT file(s)."
+
