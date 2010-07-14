@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# note: place next to JSDoc's jsdoc.jar
+# usage: jsdoc-generate-from-dir source_dir target_dir
+
 CURRENT_DIR=`(cd $(dirname $0); pwd)`
 SRC_DIR=`(cd $1; pwd)`
 TARGET_DIR=`(cd $2; pwd)`
