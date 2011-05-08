@@ -1,3 +1,4 @@
 A collection of (fairly wonky) scripts
 
-jsdoc-generate-from-dir - Convert a dir of js files into json formatted JSDoc
+jsdoc-generate-from-dir  - Convert a dir of js files into json formatted JSDoc
+mongodb-repair-and-start - Start mongod again after terminating unexpectedly

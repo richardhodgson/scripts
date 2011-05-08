@@ -1,0 +1,8 @@
+# When mongod is terminated unexpectedly
+# Remove lock, run repair, restart mongod
+# (Run with sudo)
+#
+rm /var/lib/mongodb/mongod.lock
+su - mongodb -c "mongod --repair --dbpath=/var/lib/mongodb"
+rm /var/lib/mongodb/mongod.lock
+/etc/init.d/mongodb start
